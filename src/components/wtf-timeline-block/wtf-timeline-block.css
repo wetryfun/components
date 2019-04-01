@@ -1,0 +1,145 @@
+/**
+ * @prop --color-content-bg: Color of the content background
+ * @prop --color-content-shadow: Color of the content shadow
+ * @prop --color-icon-bg: Color of the icon background
+ * @prop --color-icon-shadow: Color of the icon shadow
+ * @prop --color-date: Color of the date
+ * @prop --radius-content: Radius of content
+ */
+
+wtf-timeline-block {
+  --color-content: black;
+  --color-content-bg: white;
+  --color-content-shadow: lightgray;
+  --color-icon-bg: gray;
+  --color-icon-shadow: white;
+  --color-date: gray;
+  --radius-content: 0.25em;
+  display: flex;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer > * {
+  display: inline-block;
+}
+
+wtf-timeline-block:last-child {
+  margin-bottom: 0;
+}
+
+wtf-timeline-block {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 64rem) {
+  wtf-timeline-block:nth-child(even),
+  wtf-timeline-block:nth-child(even) .footer {
+    flex-direction: row-reverse;
+  }
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--color-icon-shadow),
+    inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  background-color: var(--color-icon-bg);
+}
+
+.icon slot[name='icon'] {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 64rem) {
+  .icon {
+    width: 60px;
+    height: 60px;
+    order: 1;
+    margin-left: calc(5% - 30px);
+  }
+
+  wtf-timeline-block:nth-child(even) .icon {
+    margin-right: calc(5% - 30px);
+  }
+}
+
+.content {
+  flex-grow: 1;
+  position: relative;
+  margin-left: var(--space-md);
+  color: var(--color-content);
+  background: var(--color-content-bg);
+  border-radius: var(--radius-content);
+  padding: var(--space-md);
+  box-shadow: 0 3px 0 var(--color-content-shadow);
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: 100%;
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-right-color: var(--color-content-bg);
+}
+
+.content > :first-child {
+  margin-top: 0;
+}
+
+@media (min-width: 64rem) {
+  .content {
+    width: 45%;
+    flex-grow: 0;
+    margin: 0;
+  }
+
+  .content::before {
+    top: 24px;
+  }
+
+  wtf-timeline-block:nth-child(odd) .content::before {
+    right: auto;
+    left: 100%;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-left-color: var(--color-content-bg);
+  }
+}
+
+.date {
+  color: var(--color-date);
+}
+
+@media (min-width: 64rem) {
+  .date {
+    position: absolute;
+    width: 100%;
+    left: 120%;
+    top: 20px;
+  }
+
+  wtf-timeline-block:nth-child(even) .date {
+    left: auto;
+    right: 120%;
+    text-align: right;
+  }
+}
