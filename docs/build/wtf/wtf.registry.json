@@ -1,0 +1,19 @@
+{
+  "namespace": "wtf",
+  "fsNamespace": "wtf",
+  "loader": "../wtf.js",
+  "core": "wtf.jo8oted9.js",
+  "corePolyfilled": "wtf.prtg2uru.js",
+  "components": {
+    "wtf-timeline": {
+      "bundleIds": {
+        "$": "zabi3rdy"
+      }
+    },
+    "wtf-timeline-block": {
+      "bundleIds": {
+        "$": "t5pobj4q"
+      }
+    }
+  }
+}

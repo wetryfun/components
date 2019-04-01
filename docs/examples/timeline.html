@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>WeTry.fun timeline demo</title>
+    <link rel="apple-touch-icon" href="../assets/icon/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.ico" />
+    <script src="../build/wtf.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+      .btn {
+        white-space: nowrap;
+        text-decoration: none;
+        line-height: 1;
+        padding: 0.5em 0.75em;
+        border-radius: 0.25em;
+        border: 1px solid black;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <wtf-timeline>
+      <wtf-timeline-block date="Jan 14">
+        <img src="../assets/img/picture.svg" alt="Picture" slot="icon" />
+        <h2>Title of section 1</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto,
+          optio, dolorum provident rerum aut hic quasi placeat iure tempora
+          laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui
+          ut.
+        </p>
+        <a href="#0" class="btn" slot="footer">
+          Read more
+        </a>
+      </wtf-timeline-block>
+
+      <wtf-timeline-block date="Jan 18">
+        <img src="../assets/img/movie.svg" alt="Picture" slot="icon" />
+        <h2>Title of section 2</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto,
+          optio, dolorum provident rerum aut hic quasi placeat iure tempora
+          laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui
+          ut.
+        </p>
+        <a href="#0" class="btn" slot="footer">
+          Read more
+        </a>
+      </wtf-timeline-block>
+
+      <wtf-timeline-block date="Jan 20">
+        <img src="../assets/img/location.svg" alt="Picture" slot="icon" />
+        <h2>Title of section 3</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto,
+          optio, dolorum provident rerum aut hic quasi placeat iure tempora
+          laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui
+          ut.
+        </p>
+        <a href="#0" class="btn" slot="footer">
+          Read more
+        </a>
+      </wtf-timeline-block>
+    </wtf-timeline>
+  </body>
+</html>
