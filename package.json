@@ -22,7 +22,9 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "release": "standard-version"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@stencil/state-tunnel": "0.0.9-1"
+  },
   "devDependencies": {
     "@stencil/core": "~0.18.1",
     "standard-version": "^5.0.2"

@@ -7,10 +7,50 @@
 
 import '@stencil/core';
 
-
+import '@stencil/state-tunnel';
+import {
+  Config,
+  ConfigLoader,
+} from './components/wtf-config/index';
+import {
+  EventEmitter,
+} from '@stencil/core';
 
 
 export namespace Components {
+
+  interface WtfConfig {
+    /**
+    * Configuration object
+    */
+    'config'?: Config;
+    /**
+    * Gets value from config
+    */
+    'getValue': (key: string) => Promise<any>;
+    /**
+    * Config loader
+    */
+    'load': ConfigLoader;
+    /**
+    * Sets config value
+    */
+    'setValue': (key: string, value: any) => Promise<Config>;
+  }
+  interface WtfConfigAttributes extends StencilHTMLAttributes {
+    /**
+    * Configuration object
+    */
+    'config'?: Config;
+    /**
+    * Config loader
+    */
+    'load'?: ConfigLoader;
+    /**
+    * Triggers when the config is loaded
+    */
+    'onLoaded'?: (event: CustomEvent<Config>) => void;
+  }
 
   interface WtfTimelineBlock {
     /**
@@ -97,15 +137,23 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'WtfConfig': Components.WtfConfig;
     'WtfTimelineBlock': Components.WtfTimelineBlock;
     'WtfTimeline': Components.WtfTimeline;
   }
 
   interface StencilIntrinsicElements {
+    'wtf-config': Components.WtfConfigAttributes;
     'wtf-timeline-block': Components.WtfTimelineBlockAttributes;
     'wtf-timeline': Components.WtfTimelineAttributes;
   }
 
+
+  interface HTMLWtfConfigElement extends Components.WtfConfig, HTMLStencilElement {}
+  var HTMLWtfConfigElement: {
+    prototype: HTMLWtfConfigElement;
+    new (): HTMLWtfConfigElement;
+  };
 
   interface HTMLWtfTimelineBlockElement extends Components.WtfTimelineBlock, HTMLStencilElement {}
   var HTMLWtfTimelineBlockElement: {
@@ -120,11 +168,13 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'wtf-config': HTMLWtfConfigElement
     'wtf-timeline-block': HTMLWtfTimelineBlockElement
     'wtf-timeline': HTMLWtfTimelineElement
   }
 
   interface ElementTagNameMap {
+    'wtf-config': HTMLWtfConfigElement;
     'wtf-timeline-block': HTMLWtfTimelineBlockElement;
     'wtf-timeline': HTMLWtfTimelineElement;
   }
